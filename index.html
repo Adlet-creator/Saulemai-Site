@@ -69,149 +69,138 @@
 
 <main id="main">
 
-  <section class="hero">
-    <div class="container">
-      <span class="hero__eyebrow">Медицинский центр «Саулемай»</span>
-      <h1>Гинекология в Алматы — бережный приём в «Саулемай»</h1>
-      <p>Консультация гинеколога, УЗИ и лабораторные исследования на Достык, 32. Поможем разобраться в обследованиях и согласовать удобное время.</p>
-
-      <div class="hero__ctas">
-        <a
-          href="#"
-          class="btn btn-primary"
-          data-whatsapp-cta
-          data-label-ready="Записаться в WhatsApp"
-          data-label-fallback="Написать в Instagram"
-          data-cta-location="hero"
-        >Записаться в WhatsApp</a>
-        <a href="/services/" class="btn btn-secondary">Посмотреть услуги и цены</a>
+  <!-- 1. HERO: текст слева, настоящее фото врача справа (не ИИ-композиция) -->
+  <section class="hero-split">
+    <div class="container hero-split__grid">
+      <div>
+        <span class="eyebrow">Женское здоровье · Алматы</span>
+        <h1>Гинекология в Алматы — бережный приём в «Саулемай»</h1>
+        <p class="hero-split__intro">Приём гинеколога, УЗИ и лабораторные исследования. Поможем разобраться с записью и подготовкой к визиту.</p>
+        <div class="hero__ctas">
+          <a
+            href="#"
+            class="btn btn-primary"
+            data-whatsapp-cta
+            data-label-ready="Записаться в WhatsApp"
+            data-label-fallback="Написать в Instagram"
+            data-cta-location="hero"
+          >Записаться в WhatsApp</a>
+          <a href="/services/" class="btn btn-secondary">Посмотреть услуги и цены</a>
+        </div>
+        <a class="hero-split__location" href="/contacts/">⌖ Проспект Достык, 32</a>
       </div>
-
-      <div class="hero__facts">
-        <div class="hero__fact">
-          <span class="icon-circle icon-circle--rose" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.2 7-12a7 7 0 1 0-14 0c0 4.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
-          </span>
-          <strong>пр. Достык, 32</strong>
-          <span>г. Алматы</span>
-        </div>
-        <div class="hero__fact">
-          <span class="icon-circle icon-circle--sun" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
-          </span>
-          <strong data-hours-display>Часы работы уточняются</strong>
-          <span>Запись только по будням</span>
-        </div>
-        <div class="hero__fact">
-          <span class="icon-circle icon-circle--rose" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>
-          </span>
-          <strong>Курмангалиева С. Т.</strong>
-          <span>Акушер-гинеколог, УЗИ-диагностика</span>
-        </div>
-        <div class="hero__fact">
-          <span class="icon-circle icon-circle--sun" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5.2 8.5A1.5 1.5 0 0 0 6 20h12a1.5 1.5 0 0 0 1.2-2.5L14 9V3"/><path d="M8 15h8"/></svg>
-          </span>
-          <strong>Русский, казахский</strong>
-          <span>Языки приёма</span>
-        </div>
+      <div class="hero-split__photo">
+        <img src="/assets/img/doctor-hero.jpg" alt="Курмангалиева Сауле Тоглегеновна, врач акушер-гинеколог медицинского центра «Саулемай»" width="1280" height="1161">
       </div>
     </div>
-  </section>
 
-  <section class="section section--tight">
+    <div class="container facts-strip">
+      <div><strong>Достык, 32</strong><small>Алматы · адрес центра</small></div>
+      <div><strong>Гинекология · УЗИ</strong><small>Лабораторные исследования</small></div>
+      <div><strong>Приём по будням</strong><small>Время согласует администратор</small></div>
+      <div><strong>Русский, казахский</strong><small>Языки приёма</small></div>
+    </div>
+  </section>
+  <hr class="divider container">
+
+  <!-- 2. С чего хотите начать? — честные иконки вместо фото-иллюстраций -->
+  <section class="section" id="start">
     <div class="container">
-      <div class="section-title">
-        <h2>С чего хотите начать?</h2>
+      <div class="section-title" style="text-align:left; display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:20px;">
+        <div>
+          <span class="eyebrow">Выберите следующий шаг</span>
+          <h2 style="margin-bottom:0;">С чего хотите начать?</h2>
+        </div>
+        <p style="margin:0; text-align:left;">Выберите направление или обсудите запись с администратором.</p>
       </div>
-      <div class="grid grid--2">
-        <a href="/services/gynecology/" class="card service-card">
-          <span class="icon-circle icon-circle--rose" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.3-9.5-8.7C.8 8 2.3 4.5 5.8 4a4.6 4.6 0 0 1 6.2 2 4.6 4.6 0 0 1 6.2-2c3.5.5 5 4 3.3 7.3C19 15.7 12 20 12 20z"/></svg></span>
+
+      <div class="choice-grid">
+        <a class="choice-card" href="/services/gynecology/">
+          <span class="choice-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.3-9.5-8.7C.8 8 2.3 4.5 5.8 4a4.6 4.6 0 0 1 6.2 2 4.6 4.6 0 0 1 6.2-2c3.5.5 5 4 3.3 7.3C19 15.7 12 20 12 20z"/></svg></span>
           <h3>Приём гинеколога</h3>
-          <span class="service-card__arrow">Показать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="choice-card__foot">Записаться <span aria-hidden="true">↗</span></span>
         </a>
-        <a href="/services/ultrasound/pelvis/" class="card service-card">
-          <span class="icon-circle icon-circle--sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.2 7-12a7 7 0 1 0-14 0c0 4.8 7 12 7 12z"/></svg></span>
+        <a class="choice-card" href="/services/ultrasound/pelvis/">
+          <span class="choice-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.2 7-12a7 7 0 1 0-14 0c0 4.8 7 12 7 12z"/></svg></span>
           <h3>УЗИ малого таза</h3>
-          <span class="service-card__arrow">Показать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="choice-card__foot">Подробнее <span aria-hidden="true">↗</span></span>
         </a>
-        <a href="/analyses/" class="card service-card">
-          <span class="icon-circle icon-circle--rose" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
-          <h3>Уже есть назначение на анализы</h3>
-          <span class="service-card__arrow">Найти анализ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a href="/checkups/" class="card service-card">
-          <span class="icon-circle icon-circle--sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 13l2 2 4-4"/></svg></span>
-          <h3>Сравнить чек-апы</h3>
-          <span class="service-card__arrow">Показать <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <a class="choice-card" href="/analyses/">
+          <span class="choice-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
+          <h3>Уже есть направление на анализы</h3>
+          <span class="choice-card__foot">Найти анализ <span aria-hidden="true">↗</span></span>
         </a>
       </div>
-      <a
-        href="#"
-        class="card service-card"
-        style="margin-top:18px;"
-        data-whatsapp-cta
-        data-label-ready="Не знаю, какую услугу выбрать — спросить администратора"
-        data-label-fallback="Написать в Instagram"
-        data-cta-location="home-navigator-unsure"
-      >Не знаю, какую услугу выбрать</a>
+
+      <a class="choice-ribbon" href="/checkups/">
+        <div>
+          <b>Хотите сравнить чек-апы?</b>
+          <p>Посмотрите программы обследований и уточните состав перед записью.</p>
+        </div>
+        <span aria-hidden="true">↗</span>
+      </a>
     </div>
   </section>
 
-  <section class="section" style="background:var(--color-surface); border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);">
+  <!-- 3. Направления -->
+  <section class="section" style="background:var(--color-surface-soft);">
     <div class="container">
-      <div class="section-title">
-        <h2>Направления</h2>
-      </div>
-      <div class="grid grid--3">
-        <a href="/services/gynecology/" class="card service-card">
-          <span class="icon-circle icon-circle--rose" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.3-9.5-8.7C.8 8 2.3 4.5 5.8 4a4.6 4.6 0 0 1 6.2 2 4.6 4.6 0 0 1 6.2-2c3.5.5 5 4 3.3 7.3C19 15.7 12 20 12 20z"/></svg></span>
+      <span class="eyebrow">Услуги центра</span>
+      <h2>Направления</h2>
+      <div class="directions-grid">
+        <div class="direction-item">
+          <span class="number">01 /</span>
           <h3>Гинекология</h3>
-          <p class="muted">Первичный и повторный приём акушера-гинеколога.</p>
-          <span class="service-card__arrow">Посмотреть <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a href="/services/ultrasound/" class="card service-card">
-          <span class="icon-circle icon-circle--sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2 7 4-14 2 7h6"/></svg></span>
+          <p class="muted">Приём, осмотр и обсуждение вопросов женского здоровья.</p>
+          <a class="textlink" href="/services/gynecology/">Подробнее о приёме <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="direction-item">
+          <span class="number">02 /</span>
           <h3>УЗИ</h3>
-          <p class="muted">Малого таза — эталонная услуга; почки и щитовидная железа уточняются.</p>
-          <span class="service-card__arrow">Посмотреть <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a href="/analyses/" class="card service-card">
-          <span class="icon-circle icon-circle--rose" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5.2 8.5A1.5 1.5 0 0 0 6 20h12a1.5 1.5 0 0 0 1.2-2.5L14 9V3"/><path d="M8 15h8"/></svg></span>
+          <p class="muted">Малый таз — эталонная услуга; почки и щитовидная железа уточняются.</p>
+          <a class="textlink" href="/services/ultrasound/">Виды исследований <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="direction-item">
+          <span class="number">03 /</span>
           <h3>Анализы</h3>
-          <p class="muted">Поиск по 74 лабораторным исследованиям клиники.</p>
-          <span class="service-card__arrow">Посмотреть <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
+          <p class="muted">Поиск по 74 лабораторным исследованиям и подготовка к сдаче.</p>
+          <a class="textlink" href="/analyses/">Найти анализ <span aria-hidden="true">↗</span></a>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- 4. Комплексные программы -->
   <section class="section">
     <div class="container">
       <div class="section-title">
+        <span class="eyebrow">Программы обследований</span>
         <h2>Комплексные программы</h2>
-        <p>Полный состав каждой программы — на её странице. Программа не обязательна для каждой пациентки соответствующего возраста.</p>
+        <p>Состав и необходимость обследований обсуждаются с врачом.</p>
       </div>
-      <div class="grid grid--3" id="home-programs"></div>
-      <p class="text-center" style="margin-top:20px;"><a href="/checkups/">Все чек-апы →</a></p>
+      <div class="program-grid" id="home-programs"></div>
+      <p class="text-center" style="margin-top:22px;"><a class="textlink" href="/checkups/">Все программы и стоимость <span aria-hidden="true">↗</span></a></p>
     </div>
   </section>
 
-  <section class="section" style="background:var(--color-surface); border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);">
-    <div class="container grid grid--2" style="align-items:center;">
+  <!-- 5. Врач — настоящий архивный портрет -->
+  <section class="section" style="background:var(--color-surface-soft);">
+    <div class="container doctor-split">
       <div>
-        <div class="doctor-photo">
-          <img src="/assets/img/doctor-placeholder.svg" alt="Фото врача появится после согласования" width="320" height="420">
+        <div class="doctor-split__photo">
+          <img src="/assets/img/doctor-portrait.jpg" alt="Курмангалиева Сауле Тоглегеновна, врач акушер-гинеколог" width="900" height="1215">
         </div>
-        <p class="doctor-photo-caption">Фото появится после согласования</p>
+        <p class="photo-note">Фото из архива клиники</p>
       </div>
       <div>
+        <span class="eyebrow">Ваш врач</span>
         <h2>Курмангалиева Сауле Тоглегеновна</h2>
-        <p>Акушер-гинеколог высшей категории, врач УЗИ, директор медицинского центра SAULEMAI. Приём на русском и казахском языках.</p>
-        <p class="muted badge-pending" style="display:inline-flex;">37 лет опыта — по данным клиники, документы уточняются</p>
-        <div class="hero__ctas" style="margin-top:16px;">
-          <a href="/doctors/saule-kurmangaliyeva/" class="btn btn-secondary">Подробнее о враче</a>
+        <p>Приём гинеколога начинается с разговора: расскажите, что вас беспокоит и какие вопросы хотите обсудить.</p>
+        <div class="tag-row">
+          <span class="tag">Гинекология</span>
+          <span class="tag">Русский / қазақша</span>
+        </div>
+        <div class="hero__ctas">
           <a
             href="#"
             class="btn btn-primary"
@@ -220,136 +209,97 @@
             data-label-fallback="Написать в Instagram"
             data-cta-location="home-doctor"
           >Записаться к врачу</a>
+          <a href="/doctors/saule-kurmangaliyeva/" class="btn btn-secondary">Подробнее о враче</a>
         </div>
-        <p class="muted" style="font-size:0.85rem; margin-top:14px;">Видеовизитка врача появится здесь после съёмки — запускается только по нажатию, без автозвука.</p>
+        <p class="muted" style="font-size:0.85rem; margin-top:18px;">Квалификация, стаж и документы — по данным клиники, уточняются перед окончательной публикацией.</p>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-title">
+  <!-- 6. УЗИ-диагностика — без иллюстративных ИИ-фото оборудования -->
+  <section class="section" id="ultrasound">
+    <div class="container diagnostic-split">
+      <div>
+        <span class="eyebrow">Исследования и подготовка</span>
         <h2>УЗИ-диагностика</h2>
-        <p>Направление УЗИ подтверждено клиникой. Модель аппарата и класс «экспертный» публикуются только после документальной проверки.</p>
+        <p>Направление подтверждено клиникой. Модель аппарата и интерьер кабинета публикуются только после проверки — здесь без вымышленных фото.</p>
+        <ul class="diagnostic-list">
+          <li>УЗИ органов малого таза</li>
+          <li>УЗИ почек</li>
+          <li>УЗИ щитовидной железы</li>
+        </ul>
+        <a class="textlink" href="/services/ultrasound/pelvis/">Подготовка к исследованию <span aria-hidden="true">↗</span></a>
       </div>
-      <div class="hero__ctas" style="justify-content:center;">
-        <a href="/services/ultrasound/pelvis/" class="btn btn-secondary">УЗИ малого таза</a>
-        <a href="/services/ultrasound/pelvis/#main" class="btn btn-ghost">Подготовка к исследованию</a>
+      <div>
+        <div class="diagnostic-photo-pending">Фото кабинета и аппарата появится здесь после согласования с клиникой</div>
       </div>
     </div>
   </section>
 
-  <section class="section" style="background:var(--color-surface); border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);">
+  <!-- 7. Отзывы — честное редакционное состояние -->
+  <section class="section text-center" style="background:var(--color-surface-soft);">
     <div class="container">
-      <div class="section-title">
-        <h2>Отзывы наших пациенток</h2>
-        <p>Мы собираем отзывы в честном виде — с именем, датой и ссылкой на источник, без накрученных рейтингов.</p>
+      <span class="eyebrow">Обратная связь</span>
+      <h2>Отзывы наших пациенток</h2>
+      <div class="reviews-pending">
+        <strong>Место для проверенных отзывов</strong>
+        <p class="muted">Мы собираем отзывы в честном виде — с именем, датой и ссылкой на источник. Если вы уже были на приёме, поделитесь впечатлениями в <a href="#" data-instagram-link target="_blank" rel="noopener">Instagram</a>.</p>
       </div>
-      <div class="note text-center" style="max-width:640px; margin:0 auto;">
-        Этот блок скоро заполнится реальными отзывами пациенток. Если вы уже были на приёме и готовы поделиться впечатлениями —
-        напишите нам в <a href="#" data-instagram-link target="_blank" rel="noopener">Instagram</a>, мы будем благодарны.
-      </div>
-      <p class="text-center" style="margin-top:16px;"><a href="/reviews/">Все отзывы →</a></p>
     </div>
   </section>
 
+  <!-- 8. Как проходит визит -->
   <section class="section">
     <div class="container">
-      <div class="section-title">
-        <h2>Как проходит визит</h2>
-      </div>
-      <div class="steps" style="--steps-count:4;">
+      <span class="eyebrow">От записи до результатов</span>
+      <h2>Как проходит визит</h2>
+      <div class="steps" style="--steps-count:4; margin-top:30px;">
         <div class="step">
           <span class="step__number">1</span>
-          <h3>Вы выбираете услугу и пишете администратору</h3>
+          <h3>Вы выбираете услугу</h3>
+          <p>Напишите администратору в WhatsApp.</p>
         </div>
         <div class="step">
           <span class="step__number">2</span>
-          <h3>Администратор уточняет время, стоимость и подготовку</h3>
+          <h3>Уточняем детали</h3>
+          <p>Время, стоимость и подготовку к приёму.</p>
         </div>
         <div class="step">
           <span class="step__number">3</span>
           <h3>Вы приходите на Достык, 32</h3>
-          <p>Врач объясняет план приёма и обследований.</p>
+          <p>В согласованное время по будням.</p>
         </div>
         <div class="step">
           <span class="step__number">4</span>
-          <h3>Получаете заключение и результаты</h3>
-          <p>В согласованном формате и сроке.</p>
+          <h3>Получаете инструкции</h3>
+          <p>Как получить результаты и обсудить дальнейшие действия.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" style="background:var(--color-surface); border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);">
-    <div class="container">
-      <div class="section-title">
-        <h2>Контакты</h2>
-      </div>
-      <div class="grid grid--2" style="max-width:780px; margin:0 auto;">
-        <div class="card">
-          <h3>Адрес</h3>
-          <p>г. Алматы, пр. Достык, 32</p>
-          <p class="muted" style="font-size:0.9rem;">Карта появится по нажатию — адрес остаётся читаемым и без неё.</p>
-          <a href="/contacts/" class="btn btn-secondary btn-sm">Маршрут и этаж</a>
-        </div>
-        <div class="card">
-          <h3>Режим работы</h3>
-          <p data-hours-display>Часы работы уточняются</p>
-          <p class="muted" style="font-size:0.9rem;">Запись только по будням.</p>
-        </div>
-      </div>
-      <div class="text-center" style="margin-top:24px;">
+  <!-- 9. Контакты — тёмная изумрудная полоса -->
+  <section class="section contact-band" id="contacts">
+    <div class="container contact-band__grid">
+      <div>
+        <span class="eyebrow">Мы на связи</span>
+        <h2>Обсудим вашу запись?</h2>
+        <div class="contact-band__address">Алматы,<br>проспект Достык, 32</div>
         <a
           href="#"
           class="btn btn-primary"
           data-whatsapp-cta
-          data-label-ready="Уточнить время приёма"
+          data-label-ready="Написать в WhatsApp"
           data-label-fallback="Написать в Instagram"
           data-cta-location="home-contacts-final"
-        >Уточнить время приёма</a>
+        >Написать в WhatsApp</a>
       </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-title">
-        <h2>Частые вопросы</h2>
+      <div>
+        <div class="contact-detail"><b>Приём</b><p>По будням. Время уточняет администратор.</p></div>
+        <div class="contact-detail"><b>Подготовка</b><p>Рекомендации для выбранного исследования уточняются заранее.</p></div>
+        <div class="contact-detail"><b>Как добраться</b><p><a href="/contacts/" style="color:inherit;">Маршрут и этаж — на странице контактов</a></p></div>
+        <div class="contact-detail"><b>Запись</b><p>Через WhatsApp. Без заполнения формы.</p></div>
       </div>
-      <div style="max-width:720px; margin:0 auto;">
-        <details class="faq-item">
-          <summary>Как записаться на приём?</summary>
-          <p>Самый быстрый способ — написать в WhatsApp по кнопке на сайте. Если ссылка не открылась, на странице «Контакты» есть номер для копирования.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Какой у вас адрес?</summary>
-          <p>г. Алматы, проспект Достык, 32.</p>
-        </details>
-        <details class="faq-item">
-          <summary>В какие дни вы работаете?</summary>
-          <p>Запись доступна только по будням — точный интервал часов администратор уточнит при обращении.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Можно ли сделать УЗИ и анализы в один день с приёмом?</summary>
-          <p>При наличии показаний — да, по решению врача на приёме.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="background:var(--color-primary-soft);">
-    <div class="container text-center">
-      <h2>Готовы записаться?</h2>
-      <p>Напишите нам в WhatsApp — ответим и подберём удобное время приёма.</p>
-      <a
-        href="#"
-        class="btn btn-primary"
-        data-whatsapp-cta
-        data-label-ready="Записаться в WhatsApp"
-        data-label-fallback="Написать в Instagram"
-        data-cta-location="home-final-cta"
-      >Записаться в WhatsApp</a>
     </div>
   </section>
 
@@ -378,11 +328,12 @@
         if (!p) return;
         var a = document.createElement("a");
         a.href = ROUTES[id];
-        a.className = "card service-card";
-        a.innerHTML = "<h3>" + p.name + "</h3>" +
-          "<p class=\"muted\">" + (p.audience_note || "Полный состав — на странице программы.") + "</p>" +
-          "<span class=\"badge-pending\">Полный состав</span>" +
-          "<span class=\"service-card__arrow\">Уточнить и записаться</span>";
+        a.className = "program-card";
+        a.innerHTML =
+          "<span class=\"eyebrow\">Программа обследования</span>" +
+          "<h3>" + p.name + "</h3>" +
+          "<p class=\"muted\">" + (p.audience_note || "Состав и стоимость — на странице программы.") + "</p>" +
+          "<div class=\"program-card__foot\"><span class=\"muted\">Состав и стоимость уточняются перед записью</span><strong>Подробнее ↗</strong></div>";
         host.appendChild(a);
       });
     });

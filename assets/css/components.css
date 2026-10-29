@@ -1219,3 +1219,447 @@ body {
   padding: 40px 20px;
   color: var(--color-text-muted);
 }
+
+/* ============================================================
+   Направление «Врач в центре» (29.10.2026) — новая композиция
+   главной страницы по дизайн-комплекту. Фотографии только реальные:
+   ИИ-иллюстрации консультации/УЗИ/лаборатории из комплекта НЕ
+   используются (проект запрещает ИИ-сгенерированные сцены как
+   подтверждение интерьера/оборудования клиники) — вместо них
+   честные иконки и текст, либо состояние "фото появится позже".
+   ============================================================ */
+
+.eyebrow {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 14px;
+}
+
+/* ---------- Hero: текст слева, фото врача в рамке справа ---------- */
+.hero-split {
+  padding: 40px 0 56px;
+  background: linear-gradient(180deg, var(--color-surface-soft) 0%, var(--color-bg) 100%);
+}
+
+.hero-split__grid {
+  display: grid;
+  gap: 36px;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .hero-split__grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+  }
+}
+
+.hero-split__intro {
+  max-width: 480px;
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+}
+
+.hero-split__location {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.hero-split__photo {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 4 / 3.6;
+}
+
+.hero-split__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+}
+
+/* ---------- Факты в строку (4 колонки с разделителем слева) ---------- */
+.facts-strip {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 26px 0;
+}
+
+@media (min-width: 640px) {
+  .facts-strip {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.facts-strip div {
+  padding-left: 18px;
+  border-left: 1px solid var(--color-border);
+  font-size: 0.9rem;
+}
+
+.facts-strip strong {
+  display: block;
+  font-weight: 700;
+}
+
+.facts-strip small {
+  color: var(--color-text-muted);
+}
+
+.divider {
+  height: 1px;
+  background: var(--color-border);
+  border: none;
+  margin: 0;
+}
+
+/* ---------- "С чего хотите начать?" — иконки вместо фото ---------- */
+.choice-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .choice-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.choice-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 28px 24px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.choice-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-primary-soft);
+}
+
+.choice-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-surface-soft);
+  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.choice-card__icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+}
+
+.choice-card__foot {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+}
+
+.choice-ribbon {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px 26px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-soft);
+  text-decoration: none;
+  color: inherit;
+}
+
+.choice-ribbon b {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.choice-ribbon p {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Направления: нумерованные текстовые колонки ---------- */
+.directions-grid {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: 1fr;
+  margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .directions-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.direction-item {
+  border-top: 2px solid var(--color-border);
+  padding-top: 20px;
+}
+
+.direction-item .number {
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+}
+
+.direction-item h3 {
+  margin: 10px 0 10px;
+}
+
+.textlink {
+  display: inline-flex;
+  gap: 8px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  border-bottom: 1px solid var(--color-sun);
+  padding-bottom: 2px;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+/* ---------- Программы: 2×2 с подвалом-CTA ---------- */
+.program-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .program-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.program-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 30px 32px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.program-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.program-card h3 {
+  font-size: 1.55rem;
+  margin-top: 0;
+}
+
+.program-card__foot {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.85rem;
+}
+
+.program-card__foot strong {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* ---------- Врач: арочный портрет + текст ---------- */
+.doctor-split {
+  display: grid;
+  gap: 32px;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .doctor-split {
+    grid-template-columns: 42% 1fr;
+    gap: 70px;
+  }
+}
+
+.doctor-split__photo {
+  border-radius: 200px 200px var(--radius-lg) var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.doctor-split__photo img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 0.74;
+}
+
+.photo-note {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: 10px;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.tag {
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+}
+
+/* ---------- УЗИ-диагностика: список + изображение/заглушка ---------- */
+.diagnostic-split {
+  display: grid;
+  gap: 32px;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .diagnostic-split {
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+  }
+}
+
+.diagnostic-list {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+}
+
+.diagnostic-list li {
+  padding: 13px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 1rem;
+}
+
+.diagnostic-photo-pending {
+  aspect-ratio: 4 / 3.3;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-soft);
+  border: 1px dashed var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- Отзывы: редакционное состояние ---------- */
+.reviews-pending {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  max-width: 760px;
+  margin: 28px auto 0;
+  background: var(--color-surface);
+  text-align: center;
+}
+
+.reviews-pending strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+/* ---------- Контакты: тёмная изумрудная полоса ---------- */
+.contact-band {
+  background: var(--color-primary-dark);
+  color: var(--color-ivory);
+}
+
+.contact-band .eyebrow,
+.contact-band p {
+  color: #cfe0d6;
+}
+
+.contact-band h2 {
+  color: var(--color-ivory);
+}
+
+.contact-band__grid {
+  display: grid;
+  gap: 36px;
+}
+
+@media (min-width: 900px) {
+  .contact-band__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+}
+
+.contact-band__address {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2.1rem);
+  line-height: 1.25;
+  margin-top: 20px;
+  color: var(--color-ivory);
+}
+
+.contact-band .btn-primary {
+  margin-top: 24px;
+}
+
+.contact-detail {
+  border-top: 1px solid rgba(255, 253, 248, 0.2);
+  padding: 18px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.contact-detail b {
+  font-weight: 600;
+  min-width: 110px;
+}
+
+.contact-detail p {
+  max-width: 260px;
+  margin: 0;
+  color: #cfe0d6;
+}
