@@ -27,7 +27,10 @@
 
 .btn-primary {
   background: var(--color-whatsapp);
-  color: #fff;
+  /* Белый текст на этом зелёном даёт контраст ~2:1 (провал WCAG AA) — тёмный
+     текст той же палитры (--color-text) даёт ~8.7:1, сохраняя узнаваемый
+     брендовый зелёный WhatsApp без потери читаемости. */
+  color: var(--color-text);
   box-shadow: 0 10px 22px rgba(37, 211, 102, 0.28);
 }
 
@@ -960,7 +963,9 @@ body {
 }
 
 .review-card__rating {
-  color: var(--color-sun-dark);
+  /* #8A6624, не --color-sun-dark — последний даёт только 3:1 на белом (провал
+     обычного текста по WCAG AA), эта более тёмная версия даёт 5.2:1. */
+  color: #8a6624;
   letter-spacing: 1px;
   font-size: 0.9rem;
 }
@@ -1187,7 +1192,8 @@ body {
   color: var(--color-text-muted);
   font-weight: 700;
   cursor: pointer;
-  padding: 6px 10px;
+  padding: 12px 14px;
+  min-height: 44px;
 }
 
 .selected-item__remove:hover {
