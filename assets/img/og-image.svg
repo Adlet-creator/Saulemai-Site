@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F7E3EA"/>
+      <stop offset="1" stop-color="#FFFBF7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1040" cy="120" r="110" fill="#B9436B" opacity="0.12"/>
+  <circle cx="140" cy="540" r="140" fill="#B9436B" opacity="0.1"/>
+  <text x="90" y="300" font-family="Arial, Helvetica, sans-serif" font-size="88" font-weight="800" fill="#2B2630">SAULE<tspan fill="#B9436B">MAI</tspan></text>
+  <text x="90" y="360" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="600" fill="#6B6570">Женское здоровье в Алматы</text>
+  <text x="90" y="410" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#6B6570">Гинеколог · УЗИ · Анализы — за один визит</text>
+</svg>

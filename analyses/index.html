@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Анализы — поиск и каталог лабораторных исследований | SAULEMAI</title>
+  <meta name="description" content="Поиск по анализам и лабораторным исследованиям медицинского центра SAULEMAI. Название, метод, материал, подготовка — добавляйте нужные позиции в список и уточняйте у администратора.">
+  <link rel="canonical" href="https://saulemaimed.kz/analyses/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Анализы — SAULEMAI">
+  <meta property="og:description" content="Поиск и каталог лабораторных исследований медицинского центра SAULEMAI.">
+  <meta property="og:url" content="https://saulemaimed.kz/analyses/">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/img/favicon-180.png">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <script src="/assets/js/config.js"></script>
+</head>
+<body>
+<a class="skip-link visually-hidden" href="#main">Перейти к содержимому</a>
+<header class="site-header" data-include="/partials/header.html"></header>
+
+<main id="main">
+  <section class="section section--tight">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a href="/">Главная</a><span aria-hidden="true">/</span><span aria-current="page">Анализы</span>
+      </nav>
+      <h1>Анализы</h1>
+      <p>Найдите нужное исследование по названию или сокращению — например, «ТТГ» или «тиреотропный гормон». Добавляйте позиции в список, чтобы передать их администратору.</p>
+      <p class="badge-pending">Цены и возможность отдельной сдачи уточняются клиникой — здесь показано, что проверено, а что ещё нет.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" data-catalog-root>
+      <div class="catalog-search">
+        <div class="catalog-search__row">
+          <div class="catalog-search__input-wrap">
+            <svg class="catalog-search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"></circle>
+              <path d="M21 21l-4.3-4.3"></path>
+            </svg>
+            <input
+              type="search"
+              class="catalog-search__input"
+              data-catalog-search-input
+              placeholder="Название анализа, например «ОАК» или «витамин D»"
+              aria-label="Поиск анализа"
+            >
+          </div>
+          <button type="button" class="catalog-search__clear" data-catalog-clear>Очистить</button>
+        </div>
+        <div class="catalog-filters" data-catalog-filters>
+          <button type="button" class="catalog-filter-chip" data-catalog-filter="hormones" aria-pressed="false">Гормоны</button>
+          <button type="button" class="catalog-filter-chip" data-catalog-filter="infections" aria-pressed="false">Инфекции и ПЦР</button>
+          <button type="button" class="catalog-filter-chip" data-catalog-filter="general" aria-pressed="false">Общеклинические</button>
+          <button type="button" class="catalog-filter-chip" data-catalog-filter="biochem" aria-pressed="false">Биохимия</button>
+          <button type="button" class="catalog-filter-chip" data-catalog-filter="vitamins" aria-pressed="false">Витамины и микроэлементы</button>
+          <button type="button" class="catalog-filter-chip" data-catalog-filter="genetic" aria-pressed="false">Генетические исследования</button>
+        </div>
+      </div>
+
+      <div class="catalog-state" data-catalog-state="loading">Загружаем каталог…</div>
+      <div class="catalog-state" data-catalog-state="empty" hidden>
+        Не нашли нужное исследование? Уточните у администратора —
+        <a href="#" data-whatsapp-cta data-label-ready="написать в WhatsApp" data-label-fallback="написать в Instagram" data-cta-location="analyses-empty-state">написать в WhatsApp</a>.
+      </div>
+      <div class="catalog-state" data-catalog-state="error" hidden>
+        Не удалось загрузить каталог. Попробуйте обновить страницу или
+        <a href="#" data-whatsapp-cta data-label-ready="напишите администратору" data-label-fallback="напишите в Instagram" data-cta-location="analyses-error-state">напишите администратору</a>.
+      </div>
+      <div class="catalog-results" data-catalog-results></div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--color-surface-soft);">
+    <div class="container text-center">
+      <h2>Собрали список? Передайте его администратору</h2>
+      <p>Мы перепроверим цену и доступность перед записью.</p>
+      <a href="/selected/" class="btn btn-secondary">Открыть список выбранного</a>
+    </div>
+  </section>
+</main>
+
+<div data-include="/partials/footer.html"></div>
+<script src="/assets/js/data-store.js"></script>
+<script src="/assets/js/selected-list.js"></script>
+<script src="/assets/js/include.js" defer></script>
+<script src="/assets/js/catalog.js" defer></script>
+<script src="/assets/js/analytics.js" defer></script>
+</body>
+</html>

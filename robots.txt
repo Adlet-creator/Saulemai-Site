@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /selected/
+
+Sitemap: https://saulemaimed.kz/sitemap.xml

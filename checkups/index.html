@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Чек-апы и комплексные программы — SAULEMAI</title>
+  <meta name="description" content="Женский чек-ап и лабораторные программы медицинского центра SAULEMAI в Алматы. Полный состав, статус проверки и запись через WhatsApp.">
+  <link rel="canonical" href="https://saulemaimed.kz/checkups/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Чек-апы — SAULEMAI">
+  <meta property="og:url" content="https://saulemaimed.kz/checkups/">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/img/favicon-180.png">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <script src="/assets/js/config.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": "https://saulemaimed.kz/checkups/#page",
+    "name": "Чек-апы — SAULEMAI",
+    "url": "https://saulemaimed.kz/checkups/",
+    "isPartOf": { "@id": "https://saulemaimed.kz/#website" },
+    "about": { "@id": "https://saulemaimed.kz/#clinic" }
+  }
+  </script>
+</head>
+<body>
+<a class="skip-link visually-hidden" href="#main">Перейти к содержимому</a>
+<header class="site-header" data-include="/partials/header.html"></header>
+
+<main id="main">
+  <section class="section section--tight">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a href="/">Главная</a><span aria-hidden="true">/</span><span aria-current="page">Чек-апы</span>
+      </nav>
+      <h1>Чек-апы</h1>
+      <p>Женский чек-ап клиники и лабораторные программы. Не каждая программа обязательна для каждой женщины — состав и необходимость обсуждает врач.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid--2" id="checkups-priority"></div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--color-surface-soft);">
+    <div class="container">
+      <div class="section-title"><h2>Остальные лабораторные программы</h2></div>
+      <p class="muted text-center">Эти программы проходят проверку врача перед публикацией отдельных страниц. Состав можно посмотреть в <a href="/analyses/">каталоге анализов</a> или уточнить у администратора.</p>
+      <div id="checkups-other" class="checklist" style="margin-top:16px;"></div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--color-primary-soft);">
+    <div class="container text-center">
+      <h2>Не знаете, какая программа подойдёт?</h2>
+      <a
+        href="#"
+        class="btn btn-primary"
+        data-whatsapp-cta
+        data-label-ready="Спросить администратора"
+        data-label-fallback="Написать в Instagram"
+        data-cta-location="checkups-index-cta"
+      >Спросить администратора</a>
+    </div>
+  </section>
+</main>
+
+<div data-include="/partials/footer.html"></div>
+<script src="/assets/js/data-store.js"></script>
+<script src="/assets/js/selected-list.js"></script>
+<script src="/assets/js/include.js" defer></script>
+<script src="/assets/js/analytics.js" defer></script>
+<script defer>
+(function () {
+  var PRIORITY_ROUTES = {
+    "pkg-womens-checkup": "/checkups/womens/",
+    "pkg-planning": "/checkups/planning/",
+    "pkg-sti-pcr": "/checkups/infections/",
+    "pkg-hormones-20-40": "/checkups/hormones/",
+    "pkg-deficiencies": "/checkups/deficiencies/",
+  };
+
+  function init() {
+    window.SaulemaiData.programs().then(function (programs) {
+      var priorityEl = document.getElementById("checkups-priority");
+      var otherEl = document.getElementById("checkups-other");
+
+      // Женский чек-ап клиники первым, затем 4 приоритетные лабораторные программы.
+      var order = ["pkg-womens-checkup", "pkg-planning", "pkg-sti-pcr", "pkg-hormones-20-40", "pkg-deficiencies"];
+      order.forEach(function (id) {
+        var p = programs.find(function (x) { return x.id === id; });
+        if (!p) return;
+        var route = PRIORITY_ROUTES[id];
+        var a = document.createElement("a");
+        a.href = route;
+        a.className = "card service-card";
+        var h3 = document.createElement("h3");
+        h3.textContent = p.name;
+        var badge = document.createElement("span");
+        badge.className = "badge-pending";
+        badge.textContent = "Состав проверяется";
+        var arrow = document.createElement("span");
+        arrow.className = "service-card__arrow";
+        arrow.textContent = "Полный состав →";
+        a.appendChild(h3);
+        a.appendChild(badge);
+        a.appendChild(arrow);
+        priorityEl.appendChild(a);
+      });
+
+      programs
+        .filter(function (p) { return order.indexOf(p.id) === -1; })
+        .forEach(function (p) {
+          var li = document.createElement("li");
+          li.textContent = p.name;
+          otherEl.appendChild(li);
+        });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>

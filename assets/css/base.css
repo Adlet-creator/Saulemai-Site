@@ -1,0 +1,195 @@
+/* SAULEMAI — base styles: reset, variables, typography */
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;0,700;1,500&display=swap");
+
+:root {
+  --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Serif для заголовков сохранён из прежнего направления. ВНИМАНИЕ: шрифт не проверен
+     на полный набор казахских букв (Ә Ғ Қ Ң Ө Ұ Ү Һ І) — проверить лицензию/покрытие
+     перед публикацией казахской версии (ТЗ §6.2). */
+  --font-display: "Lora", Georgia, "Times New Roman", serif;
+
+  /* Палитра по ТЗ v1.0 (29.10.2026), раздел 6.1 — изумруд и золото, заменяет прежнюю
+     розово-золотую систему. HEX-коды сам ТЗ называет "ориентировочными": финальные
+     сочетания нужно проверить на контраст (мин. 4,5:1 обычный текст, 3:1 крупный/UI) —
+     см. assets/data/ или заметки WP9. Базовые пары ниже уже дают высокий контраст
+     (тёмный текст на тёплом светлом фоне, светлый текст на тёмно-изумрудном фоне). */
+  --color-bg: #faf8f2; /* Warm light */
+  --color-surface: #ffffff; /* White */
+  --color-surface-soft: #eaf2ee; /* Soft mint — второстепенные карточки */
+  --color-text: #031f20; /* Deep green */
+  --color-text-muted: #4d6360;
+  --color-border: #dfe7e2;
+
+  --color-primary: #073b3a; /* Brand emerald — кнопки, заголовки, первый экран */
+  --color-primary-dark: #031f20; /* Deep green — для hover/активных состояний */
+  --color-primary-soft: #e4eeec;
+
+  --color-ivory: #fff4da; /* светлый текст на тёмном фоне, тёплые подложки */
+
+  /* Gold — только декоративные акценты (бейджи, подчёркивания, иконки);
+     ТЗ прямо запрещает использовать его как основной цвет мелкого текста. */
+  --color-sun: #ddae55;
+  --color-sun-dark: #b98b33;
+  --color-sun-soft: #fbf0dc;
+
+  --color-whatsapp: #25d366;
+  --color-whatsapp-dark: #1da851;
+
+  --color-warning-bg: #fff4e5;
+  --color-warning-border: #f3c98b;
+  --color-warning-text: #8a5a12;
+
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --shadow: 0 2px 10px rgba(3, 31, 32, 0.08);
+  --shadow-lg: 0 8px 28px rgba(3, 31, 32, 0.12);
+  --shadow-hover: 0 14px 32px rgba(3, 31, 32, 0.14);
+  --max-width: 1120px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Гарантирует, что [hidden] всегда скрывает элемент, даже если компонентный класс
+   (.btn, .card и т.п.) сам задаёт свой display — без этого правила специфичность
+   совпадает и элемент остаётся видимым несмотря на hidden. */
+[hidden] {
+  display: none !important;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.55;
+  font-size: 16px;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary-soft);
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 1.3rem + 2vw, 2.7rem);
+  font-weight: 700;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 1.1rem + 1.2vw, 1.9rem);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: clamp(1.15rem, 1rem + 0.5vw, 1.4rem);
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+ul,
+ol {
+  margin: 0 0 1em;
+  padding-left: 1.3em;
+}
+
+li {
+  margin-bottom: 0.35em;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 40px 0;
+}
+
+.section--tight {
+  padding: 24px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.section-title p {
+  color: var(--color-text-muted);
+  max-width: 640px;
+  margin: 0.5em auto 0;
+}
+
+.muted {
+  color: var(--color-text-muted);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.skip-link:focus {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 999;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 64px 0;
+  }
+}

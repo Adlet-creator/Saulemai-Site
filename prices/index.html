@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Цены в SAULEMAI — Алматы</title>
+  <meta name="description" content="Прайс-лист медицинского центра SAULEMAI: консультации, УЗИ, чек-апы, процедуры. Алматы, пр. Достык, 32. Прежние цены отменены 28.10.2026 — новые появятся после утверждения.">
+  <link rel="canonical" href="https://saulemaimed.kz/prices/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Цены в SAULEMAI">
+  <meta property="og:description" content="Прайс-лист на одной странице. Суммы проходят утверждение.">
+  <meta property="og:image" content="https://saulemaimed.kz/assets/img/og-image.png">
+  <meta property="og:url" content="https://saulemaimed.kz/prices/">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/img/favicon-180.png">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <script src="/assets/js/config.js"></script>
+</head>
+<body>
+<a class="skip-link visually-hidden" href="#main">Перейти к содержимому</a>
+<header class="site-header" data-include="/partials/header.html"></header>
+
+<main id="main">
+  <section class="section section--tight">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a href="/">Главная</a><span aria-hidden="true">/</span><span aria-current="page">Цены</span>
+      </nav>
+      <h1>Цены в SAULEMAI</h1>
+      <p>28.10.2026 владелец клиники отменил прежний прайс. Новые цены появляются здесь по мере утверждения — без исключений, случайных чисел и восстановления старых сумм.</p>
+      <p class="badge-pending">Пока ни одна позиция не утверждена — везде ниже честный статус «уточняется»</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="table-wrap pricing-table">
+        <table>
+          <thead>
+            <tr><th>Услуга</th><th style="text-align:right;">Цена</th></tr>
+          </thead>
+          <tbody id="prices-services-body"></tbody>
+          <tr><td colspan="2" style="background:var(--color-sun-soft); font-weight:700;">Чек-апы</td></tr>
+          <tbody id="prices-programs-body"></tbody>
+        </table>
+      </div>
+      <p class="muted" style="margin-top:16px;">Дата последней проверки прайса появится здесь после первого утверждения цены ответственным лицом клиники. Полный состав анализов — в <a href="/analyses/">каталоге</a>.</p>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--color-primary-soft);">
+    <div class="container text-center">
+      <h2>Не нашли нужную услугу?</h2>
+      <p>Напишите в WhatsApp — подскажем стоимость и запишем на удобное время.</p>
+      <a
+        href="#"
+        class="btn btn-primary"
+        data-whatsapp-cta
+        data-label-ready="Записаться в WhatsApp"
+        data-label-fallback="Написать в Instagram"
+        data-cta-location="prices-final-cta"
+      >Записаться в WhatsApp</a>
+    </div>
+  </section>
+</main>
+
+<div data-include="/partials/footer.html"></div>
+<script src="/assets/js/data-store.js"></script>
+<script src="/assets/js/selected-list.js"></script>
+<script src="/assets/js/include.js" defer></script>
+<script src="/assets/js/analytics.js" defer></script>
+<script defer>
+(function () {
+  var SERVICE_ROUTES = {
+    "svc-gynecology-primary": "/services/gynecology/",
+    "svc-gynecology-repeat": "/services/gynecology/",
+    "svc-ultrasound-pelvis": "/services/ultrasound/pelvis/",
+    "svc-ultrasound-thyroid": "/services/ultrasound/",
+    "svc-ultrasound-kidney": "/services/ultrasound/",
+    "svc-surgitron": "/services/gynecology/surgitron/",
+    "svc-condyloma-removal": "/services/gynecology/udalenie-kondilom/",
+    "svc-prp-gynecology": "/services/gynecology/prp/",
+  };
+  var PROGRAM_ROUTES = {
+    "pkg-womens-checkup": "/checkups/womens/",
+    "pkg-planning": "/checkups/planning/",
+    "pkg-sti-pcr": "/checkups/infections/",
+    "pkg-hormones-20-40": "/checkups/hormones/",
+    "pkg-deficiencies": "/checkups/deficiencies/",
+  };
+
+  function row(name, route, priceInfo) {
+    var tr = document.createElement("tr");
+    var tdName = document.createElement("td");
+    if (route) {
+      var a = document.createElement("a");
+      a.href = route;
+      a.textContent = name;
+      tdName.appendChild(a);
+    } else {
+      tdName.textContent = name;
+    }
+    var tdPrice = document.createElement("td");
+    tdPrice.className = "price-cell" + (priceInfo.known ? "" : " is-pending");
+    tdPrice.textContent = priceInfo.text;
+    tr.appendChild(tdName);
+    tr.appendChild(tdPrice);
+    return tr;
+  }
+
+  function init() {
+    Promise.all([
+      window.SaulemaiData.services(),
+      window.SaulemaiData.programs(),
+      window.SaulemaiData.prices(),
+    ]).then(function (res) {
+      var services = res[0], programs = res[1], prices = res[2];
+      var servicesBody = document.getElementById("prices-services-body");
+      var programsBody = document.getElementById("prices-programs-body");
+
+      services
+        .filter(function (s) { return s.price_id; })
+        .forEach(function (s) {
+          var info = window.SaulemaiData.formatPrice(prices[s.price_id]);
+          servicesBody.appendChild(row(s.name, SERVICE_ROUTES[s.id] || null, info));
+        });
+
+      ["pkg-womens-checkup", "pkg-planning", "pkg-sti-pcr", "pkg-hormones-20-40", "pkg-deficiencies"].forEach(function (id) {
+        var p = programs.find(function (x) { return x.id === id; });
+        if (!p) return;
+        var info = window.SaulemaiData.formatPrice(prices[p.price_id]);
+        programsBody.appendChild(row(p.name, PROGRAM_ROUTES[id], info));
+      });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>

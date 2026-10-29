@@ -1,0 +1,18 @@
+{
+  "id": "doc-saule-kurmangaliyeva",
+  "slug": "saule-kurmangaliyeva",
+  "name": "Курмангалиева Сауле Тоглегеновна",
+  "nameNote": "Написание «Тоглегеновна» — по последнему прямому указанию владельца (приоритет по правилам ТЗ). Найденный договор субаренды использует написание «Толегеновна» — документальное расхождение, не разрешено; сверить по диплому/удостоверению личности перед публикацией как факта.",
+  "qualification": "Акушер-гинеколог высшей категории, врач УЗИ, директор",
+  "experienceYears": 37,
+  "experienceNote": "По данным владельца клиники (ТЗ 29.10.2026). Не увеличивать автоматически без даты начала практики. Документы для подтверждения (диплом, сертификат специалиста, категория) ещё не получены.",
+  "languages": ["Русский", "Казахский"],
+  "minPatientAgeYears": 18,
+  "credentialsVerified": false,
+  "photoPath": null,
+  "photoNote": "В saulemai-materials/01_Фото-врача/ есть кандидаты; один файл (\"Естественная мягкая улыбка женщины.png\") похож на сток/ИИ-фото и не может использоваться без ручной проверки.",
+  "videoPath": null,
+  "videoNote": "Видеовизитка 30–60 секунд — производственное задание, видео ещё не снято.",
+  "services": ["svc-gynecology-primary", "svc-gynecology-repeat", "svc-ultrasound-pelvis", "svc-ultrasound-thyroid", "svc-ultrasound-kidney", "svc-surgitron", "svc-condyloma-removal", "svc-prp-gynecology"],
+  "source_id": "src-owner-2026-10-28"
+}

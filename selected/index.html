@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Список выбранного | SAULEMAI</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/img/favicon-180.png">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <script src="/assets/js/config.js"></script>
+</head>
+<body>
+<a class="skip-link visually-hidden" href="#main">Перейти к содержимому</a>
+<header class="site-header" data-include="/partials/header.html"></header>
+
+<main id="main">
+  <section class="section section--tight">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a href="/">Главная</a><span aria-hidden="true">/</span><span aria-current="page">Список выбранного</span>
+      </nav>
+      <h1>Список выбранного</h1>
+      <p>Это не корзина с оплатой — просто удобный способ собрать нужные анализы и программы перед обращением к администратору. Список хранится только в этой вкладке до её закрытия.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div data-selected-loading class="catalog-state">Загружаем список…</div>
+      <div data-selected-empty class="selected-empty" hidden>
+        <p>Список пока пуст.</p>
+        <a href="/analyses/" class="btn btn-secondary">Перейти к анализам</a>
+      </div>
+      <div data-selected-list class="selected-list"></div>
+
+      <div data-selected-summary class="selected-summary" hidden>
+        <div data-selected-total>Стоимость списка требует уточнения</div>
+      </div>
+
+      <div data-selected-overlap-warning class="callout" style="margin-top:16px;" hidden></div>
+
+      <div style="margin-top:24px; display:flex; gap:12px; flex-wrap:wrap;">
+        <button type="button" class="btn btn-ghost" data-selected-clear>Очистить список</button>
+        <button type="button" class="btn btn-primary" data-selected-send hidden>Передать администратору в WhatsApp</button>
+      </div>
+
+      <div data-selected-preview class="note" style="margin-top:18px;" hidden>
+        <p><strong>Предпросмотр сообщения:</strong></p>
+        <p data-selected-preview-text></p>
+        <label style="display:flex; gap:8px; align-items:flex-start; font-size:0.9rem; margin-bottom:12px;">
+          <input type="checkbox" data-selected-include-items>
+          Включить названия выбранных позиций в сообщение (по умолчанию список не передаётся — только нейтральная просьба о записи)
+        </label>
+        <a href="#" class="btn btn-primary" data-selected-confirm-send target="_blank" rel="noopener">Открыть WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div data-include="/partials/footer.html"></div>
+<script src="/assets/js/data-store.js"></script>
+<script src="/assets/js/selected-list.js"></script>
+<script src="/assets/js/include.js" defer></script>
+<script src="/assets/js/analytics.js" defer></script>
+<script defer>
+(function () {
+  function init() {
+    var loadingEl = document.querySelector("[data-selected-loading]");
+    var emptyEl = document.querySelector("[data-selected-empty]");
+    var listEl = document.querySelector("[data-selected-list]");
+    var summaryEl = document.querySelector("[data-selected-summary]");
+    var totalEl = document.querySelector("[data-selected-total]");
+    var overlapEl = document.querySelector("[data-selected-overlap-warning]");
+    var sendBtn = document.querySelector("[data-selected-send]");
+    var previewEl = document.querySelector("[data-selected-preview]");
+    var previewTextEl = document.querySelector("[data-selected-preview-text]");
+    var includeItemsCheckbox = document.querySelector("[data-selected-include-items]");
+    var confirmSendBtn = document.querySelector("[data-selected-confirm-send]");
+    var clearBtn = document.querySelector("[data-selected-clear]");
+
+    function render() {
+      var items = window.SaulemaiSelectedList.getAll();
+      loadingEl.hidden = true;
+
+      if (!items.length) {
+        emptyEl.hidden = false;
+        listEl.innerHTML = "";
+        summaryEl.hidden = true;
+        overlapEl.hidden = true;
+        sendBtn.hidden = true;
+        previewEl.hidden = true;
+        return;
+      }
+      emptyEl.hidden = true;
+
+      Promise.all([
+        window.SaulemaiData.analyses(),
+        window.SaulemaiData.programs(),
+        window.SaulemaiData.prices(),
+      ]).then(function (res) {
+        var analyses = res[0], programs = res[1], prices = res[2];
+        var byId = {};
+        analyses.forEach(function (a) { byId[a.id] = a; });
+        var programsById = {};
+        programs.forEach(function (p) { programsById[p.id] = p; });
+
+        listEl.innerHTML = "";
+        var allKnown = true;
+        var knownTotal = 0;
+        var selectedAnalysisIds = items.filter(function (i) { return i.type === "analysis"; }).map(function (i) { return i.id; });
+
+        items.forEach(function (item) {
+          var record = item.type === "analysis" ? byId[item.id] : programsById[item.id];
+          if (!record) return;
+          var priceInfo = window.SaulemaiData.formatPrice(prices[item.id]);
+          if (!priceInfo.known) allKnown = false; else knownTotal += priceInfo.amount;
+
+          var row = document.createElement("div");
+          row.className = "selected-item";
+          var label = document.createElement("div");
+          label.textContent = record.name + (item.type === "program" ? " (программа)" : "");
+          row.appendChild(label);
+
+          var right = document.createElement("div");
+          right.style.display = "flex";
+          right.style.alignItems = "center";
+          right.style.gap = "10px";
+          var priceSpan = document.createElement("span");
+          priceSpan.textContent = priceInfo.text;
+          priceSpan.style.fontWeight = "700";
+          right.appendChild(priceSpan);
+          var removeBtn = document.createElement("button");
+          removeBtn.type = "button";
+          removeBtn.className = "selected-item__remove";
+          removeBtn.textContent = "Удалить";
+          removeBtn.addEventListener("click", function () {
+            window.SaulemaiSelectedList.remove(item.id);
+            render();
+          });
+          right.appendChild(removeBtn);
+          row.appendChild(right);
+          listEl.appendChild(row);
+        });
+
+        // Предупреждение о пересечении: выбранный анализ входит в выбранную программу.
+        var overlaps = [];
+        items.filter(function (i) { return i.type === "program"; }).forEach(function (progItem) {
+          var prog = programsById[progItem.id];
+          if (!prog) return;
+          var composition = prog.composition_analysis_ids || [];
+          var overlapNames = composition
+            .filter(function (aid) { return selectedAnalysisIds.indexOf(aid) !== -1; })
+            .map(function (aid) { return byId[aid] ? byId[aid].name : aid; });
+          if (overlapNames.length) {
+            overlaps.push("«" + prog.name + "» уже включает: " + overlapNames.join(", "));
+          }
+        });
+        if (overlaps.length) {
+          overlapEl.hidden = false;
+          overlapEl.innerHTML = "<strong>Проверьте пересечение:</strong> " + overlaps.join(" ");
+        } else {
+          overlapEl.hidden = true;
+        }
+
+        summaryEl.hidden = false;
+        totalEl.textContent = allKnown
+          ? "Известная сумма по списку: " + knownTotal.toLocaleString("ru-RU") + " ₸"
+          : "Стоимость списка требует уточнения" + (knownTotal > 0 ? " (известная часть: " + knownTotal.toLocaleString("ru-RU") + " ₸)" : "");
+
+        sendBtn.hidden = false;
+        sendBtn.onclick = function () {
+          previewEl.hidden = false;
+          updatePreview();
+        };
+
+        function updatePreview() {
+          var includeItems = includeItemsCheckbox.checked;
+          var base = (window.SAULEMAI_CONFIG.contact.whatsappPrefillText || "");
+          var text = base;
+          if (includeItems) {
+            var names = items.map(function (i) {
+              var r = i.type === "analysis" ? byId[i.id] : programsById[i.id];
+              return r ? r.name : i.id;
+            });
+            text += " Интересуют позиции: " + names.join(", ") + ".";
+          }
+          previewTextEl.textContent = text;
+          confirmSendBtn.href = window.SaulemaiCTA.buildWhatsAppHref(text);
+        }
+        includeItemsCheckbox.onchange = updatePreview;
+      });
+    }
+
+    clearBtn.addEventListener("click", function () {
+      window.SaulemaiSelectedList.clear();
+      render();
+    });
+
+    render();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>

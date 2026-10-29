@@ -1,0 +1,119 @@
+{
+  "_comment": "Коллекция Service по ТЗ v1.0, Приложение А. Все price_id → prices.json, amount_kzt=null до утверждения. category: gynecology | ultrasound | procedure.",
+  "services": [
+    {
+      "id": "svc-gynecology-primary",
+      "name": "Первичный приём гинеколога",
+      "category": "gynecology",
+      "route": "/services/gynecology/",
+      "doctor_id": "doc-saule-kurmangaliyeva",
+      "description_short": "Консультация, осмотр, план обследований.",
+      "verification_needed": "Подтвердить состав приёма и отдельную стоимость обследований.",
+      "price_id": "svc-gynecology-primary",
+      "status": "needs_review",
+      "source_id": "src-owner-2026-10-28"
+    },
+    {
+      "id": "svc-gynecology-repeat",
+      "name": "Повторный приём гинеколога",
+      "category": "gynecology",
+      "route": "/services/gynecology/",
+      "doctor_id": "doc-saule-kurmangaliyeva",
+      "description_short": "Повторная консультация по итогам обследований.",
+      "verification_needed": "Подтвердить условия и срок, в который приём считается повторным.",
+      "price_id": "svc-gynecology-repeat",
+      "status": "needs_review",
+      "source_id": "src-owner-2026-10-28"
+    },
+    {
+      "id": "svc-ultrasound-pelvis",
+      "name": "УЗИ органов малого таза",
+      "category": "ultrasound",
+      "route": "/services/ultrasound/pelvis/",
+      "doctor_id": "doc-saule-kurmangaliyeva",
+      "description_short": "Эталонная услуга по шаблону ТЗ §3.",
+      "verification_needed": "Подтвердить методы, аппарат, подготовку, стоимость и заключение.",
+      "price_id": "svc-ultrasound-pelvis",
+      "status": "needs_review",
+      "related_services": ["svc-gynecology-primary", "svc-gynecology-repeat"],
+      "related_programs": ["pkg-womens-checkup"],
+      "source_id": "src-owner-2026-10-28"
+    },
+    {
+      "id": "svc-ultrasound-thyroid",
+      "name": "УЗИ щитовидной железы",
+      "category": "ultrasound",
+      "route": "/services/ultrasound/",
+      "doctor_id": "doc-saule-kurmangaliyeva",
+      "description_short": "Отдельное исследование, самостоятельная доступность не проверена.",
+      "verification_needed": "Подтвердить отдельный приём и стоимость.",
+      "price_id": "svc-ultrasound-thyroid",
+      "status": "draft",
+      "source_id": "src-owner-2026-10-28"
+    },
+    {
+      "id": "svc-ultrasound-kidney",
+      "name": "УЗИ почек",
+      "category": "ultrasound",
+      "route": "/services/ultrasound/",
+      "doctor_id": "doc-saule-kurmangaliyeva",
+      "description_short": "Отдельное исследование, самостоятельная доступность не проверена.",
+      "verification_needed": "Подтвердить отдельный приём и стоимость.",
+      "price_id": "svc-ultrasound-kidney",
+      "status": "draft",
+      "source_id": "src-owner-2026-10-28"
+    },
+    {
+      "id": "svc-surgitron",
+      "name": "Радиоволновое лечение шейки матки (Сургитрон)",
+      "category": "procedure",
+      "route": "/services/gynecology/surgitron/",
+      "doctor_id": "doc-saule-kurmangaliyeva",
+      "description_short": "Процедура требует утверждения медицинского текста перед публикацией.",
+      "verification_needed": "Утвердить медицинское название, показания, ограничения и состав цены.",
+      "price_id": "svc-surgitron",
+      "status": "needs_review",
+      "publish_blocked": true,
+      "source_id": "src-owner-2026-10-28"
+    },
+    {
+      "id": "svc-condyloma-removal",
+      "name": "Удаление кондилом",
+      "category": "procedure",
+      "route": "/services/gynecology/udalenie-kondilom/",
+      "doctor_id": "doc-saule-kurmangaliyeva",
+      "description_short": "Объём процедуры и принцип ценообразования уточняются.",
+      "verification_needed": "Уточнить объём процедуры и принцип ценообразования.",
+      "price_id": "svc-condyloma-removal",
+      "status": "needs_review",
+      "publish_blocked": true,
+      "source_id": "src-owner-2026-10-28"
+    },
+    {
+      "id": "svc-prp-gynecology",
+      "name": "PRP в гинекологии",
+      "category": "procedure",
+      "route": "/services/gynecology/prp/",
+      "doctor_id": "doc-saule-kurmangaliyeva",
+      "description_short": "Доступность и показания требуют согласования.",
+      "verification_needed": "Подтвердить доступность и согласовать показания и медицинские тексты.",
+      "price_id": "svc-prp-gynecology",
+      "status": "needs_review",
+      "publish_blocked": true,
+      "source_id": "src-owner-2026-10-28"
+    },
+    {
+      "id": "svc-hydrocolonotherapy",
+      "name": "Гидроколонотерапия / АМОК",
+      "category": "other",
+      "route": null,
+      "description_short": "Не входит в основную гинекологическую навигацию.",
+      "verification_needed": "Размещение вне основной навигации — только после отдельного решения владельца.",
+      "price_id": null,
+      "status": "draft",
+      "publish_blocked": true,
+      "inNavigation": false,
+      "source_id": "src-owner-2026-10-28"
+    }
+  ]
+}

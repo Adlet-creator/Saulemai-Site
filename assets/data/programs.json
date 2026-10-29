@@ -1,0 +1,156 @@
+{
+  "_comment": "Коллекция Package по ТЗ v1.0, Приложение Б (11 лабораторных программ) + собственная программа клиники «Женский чек-ап» (Приложение А). Все status:'needs_review', price_id→prices.json amount_kzt:null. composition_analysis_ids/composition_service_ids ссылаются на id из analyses.json/services.json; composition_text — пункты, которых пока нет в каталоге (требуют отдельного решения редактора).",
+  "programs": [
+    {
+      "id": "pkg-womens-checkup",
+      "name": "Женский гинекологический чек-ап",
+      "route": "/checkups/womens/",
+      "audience_note": "Программа клиники, отдельная от лабораторного «Стартового чек-апа» (pkg-starter). Не представлять как обязательную для каждой женщины.",
+      "composition_service_ids": ["svc-gynecology-primary", "svc-ultrasound-pelvis", "svc-ultrasound-kidney", "svc-ultrasound-thyroid"],
+      "composition_analysis_ids": ["an-001", "an-004", "an-046"],
+      "composition_text": [
+        "Осмотр молочных желез",
+        "Гинекологический осмотр",
+        "Ректовагинальное исследование",
+        "Измерение АД и ИМТ",
+        "Онкоцитология",
+        "Кольпоскопия",
+        "Интерпретация результатов"
+      ],
+      "composition_note": "Сахар и свёртываемость упоминались «по показаниям» — не включать как обязательные пункты. Не использовать формулировку «в одном кабинете», не добавлять спринцевание. Онкоцитология не означает готовность результата за один визит.",
+      "status": "needs_review",
+      "price_id": "pkg-womens-checkup",
+      "source_id": "src-owner-2026-10-28"
+    },
+    {
+      "id": "pkg-planning",
+      "name": "Планирование беременности: базовый чек-ап",
+      "route": "/checkups/planning/",
+      "priority": true,
+      "composition_analysis_ids": ["an-001", "an-002", "an-003", "an-004", "an-005", "an-006"],
+      "status": "needs_review",
+      "price_id": "pkg-planning",
+      "source_id": "src-excel-checkups",
+      "excel_source_row": 1
+    },
+    {
+      "id": "pkg-deficiencies",
+      "name": "Дефициты витаминов и микроэлементов",
+      "route": "/checkups/deficiencies/",
+      "priority": true,
+      "composition_analysis_ids": ["an-002", "an-007", "an-008", "an-009", "an-001", "an-010", "an-011", "an-012", "an-013", "an-014", "an-015", "an-016", "an-017", "an-018", "an-019", "an-020", "an-021", "an-022", "an-023"],
+      "composition_note": "Проверить пересечение отдельных железа и трансферрина с комплексом «Баланс железа» (an-009).",
+      "status": "needs_review",
+      "price_id": "pkg-deficiencies",
+      "source_id": "src-excel-checkups",
+      "excel_source_row": 12
+    },
+    {
+      "id": "pkg-pcos",
+      "name": "Гормональный и метаболический профиль при СПКЯ",
+      "route": null,
+      "priority": false,
+      "composition_analysis_ids": ["an-024", "an-025", "an-026", "an-027", "an-028", "an-029", "an-030", "an-031", "an-032", "an-033", "an-034", "an-035", "an-036", "an-037"],
+      "status": "needs_review",
+      "price_id": "pkg-pcos",
+      "source_id": "src-excel-checkups",
+      "excel_source_row": 36
+    },
+    {
+      "id": "pkg-infections",
+      "name": "Инфекционный скрининг перед планированием беременности",
+      "route": null,
+      "priority": false,
+      "composition_analysis_ids": ["an-038", "an-039", "an-040", "an-041", "an-042", "an-043", "an-044", "an-045", "an-046"],
+      "status": "needs_review",
+      "price_id": "pkg-infections",
+      "source_id": "src-excel-checkups",
+      "excel_source_row": 55
+    },
+    {
+      "id": "pkg-starter",
+      "name": "Стартовый чек-ап",
+      "route": null,
+      "priority": false,
+      "composition_analysis_ids": ["an-001", "an-002", "an-010", "an-011", "an-014", "an-047", "an-042", "an-005", "an-048", "an-049"],
+      "composition_note": "PAPP-A (an-048) и ВПЧ P.16 ПЦР (an-049) в составе требуют согласования врачом до публикации программы.",
+      "status": "needs_review",
+      "price_id": "pkg-starter",
+      "source_id": "src-excel-checkups",
+      "excel_source_row": 69
+    },
+    {
+      "id": "pkg-premature-menopause",
+      "name": "Обследование при преждевременной менопаузе",
+      "route": null,
+      "priority": false,
+      "composition_analysis_ids": ["an-024", "an-025", "an-050", "an-051", "an-026", "an-052", "an-027", "an-053", "an-054", "an-055", "an-056", "an-001", "an-002", "an-057", "an-047", "an-058", "an-059", "an-060", "an-061", "an-062", "an-014"],
+      "composition_note": "FMR1 (an-055) указан в источнике с пометкой «для мужчин» — не исправлять назначение самостоятельно, согласовать тест с лабораторией и врачом.",
+      "status": "needs_review",
+      "price_id": "pkg-premature-menopause",
+      "source_id": "src-excel-checkups",
+      "excel_source_row": 84
+    },
+    {
+      "id": "pkg-metabolic",
+      "name": "Обследование при ожирении и подозрении на инсулинорезистентность",
+      "route": null,
+      "priority": false,
+      "composition_analysis_ids": ["an-057", "an-030", "an-063", "an-047", "an-064", "an-035", "an-036", "an-037", "an-065", "an-059", "an-060", "an-066", "an-026", "an-052", "an-027", "an-033", "an-001", "an-002"],
+      "composition_note": "Уточнить состав HOMA-IR (an-063) и пересечение с отдельно указанными глюкозой и инсулином.",
+      "status": "needs_review",
+      "price_id": "pkg-metabolic",
+      "source_id": "src-excel-checkups",
+      "excel_source_row": 110
+    },
+    {
+      "id": "pkg-girl-basic",
+      "name": "Базовый Check-up для девушки",
+      "route": null,
+      "priority": false,
+      "composition_analysis_ids": ["an-001", "an-004", "an-059", "an-060", "an-067", "an-062", "an-057", "an-058", "an-002", "an-026", "an-014", "an-068", "an-039", "an-040", "an-041", "an-048"],
+      "composition_note": "PAPP-A (an-048) в составе требует согласования врачом до публикации программы.",
+      "status": "needs_review",
+      "price_id": "pkg-girl-basic",
+      "source_id": "src-excel-checkups",
+      "excel_source_row": 133
+    },
+    {
+      "id": "pkg-hormones-20-40",
+      "name": "Гормональный профиль для девушек 20–40 лет",
+      "route": "/checkups/hormones/",
+      "priority": true,
+      "composition_analysis_ids": ["an-052", "an-027", "an-024", "an-025", "an-050", "an-034", "an-028", "an-029", "an-032", "an-031", "an-051", "an-057", "an-047", "an-058", "an-030", "an-063"],
+      "composition_note": "Уточнить состав HOMA-IR (an-063) и пересечение с отдельно указанными глюкозой и инсулином.",
+      "status": "needs_review",
+      "price_id": "pkg-hormones-20-40",
+      "source_id": "src-excel-checkups",
+      "excel_source_row": 155
+    },
+    {
+      "id": "pkg-hpv-genotyping-14",
+      "name": "ПЦР на ВПЧ с генотипированием (14 типов высокого онкогенного риска)",
+      "route": null,
+      "priority": false,
+      "composition_analysis_ids": [],
+      "composition_text": ["ВПЧ 16", "ВПЧ 18", "ВПЧ 31", "ВПЧ 33", "ВПЧ 35", "ВПЧ 39", "ВПЧ 45", "ВПЧ 51", "ВПЧ 52", "ВПЧ 56", "ВПЧ 58", "ВПЧ 59", "ВПЧ 68", "ВПЧ 66"],
+      "composition_note": "Это одна панель на 14 типов — типы не считать 14 отдельными платными исследованиями. Намеренно не связано с analyses.json: строки этой панели не входят в дедуплицированные 74 позиции (см. Приложение В). Отдельные коды, материал и поштучные цены не даны.",
+      "status": "needs_review",
+      "price_id": "pkg-hpv-genotyping-14",
+      "source_id": "src-excel-checkups",
+      "excel_source_row": 177
+    },
+    {
+      "id": "pkg-sti-pcr",
+      "name": "ПЦР на ИПП (урогенитальные инфекции)",
+      "route": "/checkups/infections/",
+      "priority": true,
+      "composition_analysis_ids": ["an-069", "an-070", "an-071", "an-072", "an-073", "an-045", "an-074"],
+      "composition_note": "Методы и материалы части позиций не раскрыты полностью — проверить в лаборатории. Не представлять пакет как универсальное назначение по жалобе.",
+      "status": "needs_review",
+      "price_id": "pkg-sti-pcr",
+      "source_id": "src-excel-checkups",
+      "excel_source_row": 196
+    }
+  ]
+}

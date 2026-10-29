@@ -1,0 +1,70 @@
+<div class="container site-header__bar">
+  <a href="/" class="site-logo" aria-label="Саулемай — медицинский центр, на главную">
+    <img src="/assets/img/logo-header.png" alt="Саулемай — медицинский центр" class="site-logo__image" width="208" height="88">
+  </a>
+
+  <nav class="site-nav" aria-label="Основная навигация">
+    <ul class="site-nav__inline">
+      <li><a href="/services/" data-nav-link>Услуги</a></li>
+      <li><a href="/checkups/" data-nav-link>Чек-апы</a></li>
+      <li><a href="/analyses/" data-nav-link>Анализы</a></li>
+      <li><a href="/doctors/saule-kurmangaliyeva/" data-nav-link>Врач</a></li>
+      <li><a href="/prices/" data-nav-link>Цены</a></li>
+      <li><a href="/contacts/" data-nav-link>Контакты</a></li>
+    </ul>
+
+    <details>
+      <summary>Меню</summary>
+      <ul>
+        <li><a href="/" data-nav-link>Главная</a></li>
+        <li><a href="/services/" data-nav-link>Услуги</a></li>
+        <li><a href="/services/gynecology/" data-nav-link>Гинекология</a></li>
+        <li><a href="/services/ultrasound/" data-nav-link>УЗИ</a></li>
+        <li><a href="/checkups/" data-nav-link>Чек-апы</a></li>
+        <li><a href="/analyses/" data-nav-link>Анализы</a></li>
+        <li><a href="/doctors/saule-kurmangaliyeva/" data-nav-link>Врач</a></li>
+        <li><a href="/prices/" data-nav-link>Цены</a></li>
+        <li><a href="/about/" data-nav-link>О центре</a></li>
+        <li><a href="/reviews/" data-nav-link>Отзывы</a></li>
+        <li><a href="/articles/" data-nav-link>Полезные материалы</a></li>
+        <li><a href="/contacts/" data-nav-link>Контакты</a></li>
+        <li><a href="/selected/" data-nav-link>Список выбранного</a></li>
+      </ul>
+    </details>
+  </nav>
+
+  <div class="site-header__actions" style="display:flex; align-items:center; gap:10px;">
+    <button type="button" class="btn-ghost" data-header-search-toggle aria-expanded="false" aria-controls="header-search-form" style="border:none; background:transparent; padding:8px; cursor:pointer; color:var(--color-text);" aria-label="Поиск по анализам">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path></svg>
+    </button>
+
+    <a href="/selected/" class="selected-nav-link" aria-label="Список выбранного" style="color:var(--color-text); display:inline-flex; padding:6px;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12z"></path><circle cx="9" cy="20" r="1.2"></circle><circle cx="18" cy="20" r="1.2"></circle></svg>
+      <span class="selected-badge" data-selected-badge hidden>0</span>
+    </a>
+
+    <a
+      href="#"
+      class="btn btn-primary btn-sm site-nav__cta"
+      data-whatsapp-cta
+      data-label-ready="Записаться в WhatsApp"
+      data-label-fallback="Написать в Instagram"
+      data-cta-location="header"
+    >Записаться в WhatsApp</a>
+  </div>
+</div>
+
+<div id="header-search-form" class="container" hidden style="padding-bottom:14px;">
+  <form role="search" aria-label="Поиск по анализам" style="display:flex; gap:8px;" data-header-search-form>
+    <input
+      type="search"
+      name="q"
+      placeholder="Поиск анализа — например, «ТТГ»"
+      aria-label="Поиск анализа"
+      class="catalog-search__input"
+      data-header-search-input
+      style="flex:1;"
+    >
+    <button type="submit" class="btn btn-secondary btn-sm">Искать</button>
+  </form>
+</div>
